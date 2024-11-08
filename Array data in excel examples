@@ -1,0 +1,2 @@
+=QUARTILE(FILTER(U:U, (N:N >=162)* (A:A= AD274)*(N:N<=204)*( O:O = 1)*(K:K>=2010)),1)
+=COUNTIFS(N:N, ">=168", A:A, AD274, N:N, "<=198", O:O, 1,K:K,">=2010",P:P,"relocated")
