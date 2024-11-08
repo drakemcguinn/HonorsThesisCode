@@ -1,0 +1,15 @@
+p5 <- ggplot(seasonality_chart, aes(x= day, y = clutch))+ 
+  geom_point(color = "black")+
+  theme_minimal()+
+  stat_smooth(method = 'lm', formula = y ~ x, se = FALSE, color = "springgreen") +
+  ylab("Median Relocated Clutch Size")+
+  xlab("Day of Year")+
+  theme(  
+    axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),  
+    panel.background = element_rect(fill="white", color="white"),  
+    plot.background = element_rect(fill="white", color="white"),  
+    plot.margin = margin(10, 10, 10, 10),  
+    axis.line = element_line(color = "black"), 
+    axis.ticks = element_line(color = "black"),
+    axis.title = element_text(color = "black") 
+  )  
