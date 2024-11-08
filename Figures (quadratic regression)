@@ -1,0 +1,16 @@
+p6 <- ggplot(seasonality_chart, aes(x = day, y = success))+ 
+  geom_point()+ 
+  theme_minimal()+
+  stat_smooth(method = 'lm', formula = y ~ poly(x, 2), se = FALSE, color = "magenta") +
+  ylim(0,100)+
+  ylab("Median Emergence Success (%)")+
+  xlab("Day of Year")+
+  theme(  
+    axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), 
+    panel.background = element_rect(fill="white", color="white"),
+    plot.background = element_rect(fill="white", color="white"),  
+    plot.margin = margin(10, 10, 10, 10),  
+    axis.line = element_line(color = "black"),  
+    axis.ticks = element_line(color = "black"),  
+    axis.title = element_text(color = "black") 
+  )  
