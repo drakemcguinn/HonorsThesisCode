@@ -1,0 +1,31 @@
+#loggerhead nests----
+lmLog <- lm(log(nests)~year, data = R_Data)
+
+lm2005nest <- lm( log(nests[10:28]) ~ year[10:28], data = R_Data)
+
+lmemersuc <- lm(emersuc~R_Data$`count number`, data = R_Data)
+summary(lmemersuc)
+plot(R_Data$emersuc~R_Data$`count number`)
+
+
+
+#summary
+summary(lmLog)
+summary(lm2005nest)
+
+
+#plotting---- 
+
+DF <- data.frame("Year", "Nests", R_Data)
+
+
+ggplot(DF, aes(x = year, y = nests)) +
+  theme_classic() +
+  geom_point() +
+  stat_smooth(method = 'lm', formula = y ~ poly(x, 2), se = FALSE, color = "springgreen") +
+  labs(x = "Year", y = "Nests") + 
+  theme(
+    text = element_text( size = 16),
+    panel.grid.major = element_line(color = "grey85"), 
+    panel.grid.minor = element_line(color = "grey90")  
+  )
