@@ -1,0 +1,1 @@
+wilcox.test(R_Data$`lat emergence success`, R_Data$`long emergence`, alternative = "greater")
