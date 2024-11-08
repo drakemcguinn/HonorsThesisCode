@@ -1,0 +1,20 @@
+# Create a data frame with selected columns
+seasonality_chart <- data.frame(day = R_Data$`date laid`,
+                                success = R_Data$`emergence success`,
+                                clutch = R_Data$`clutch size`)
+
+# Remove rows with NA values
+seasonality_clean <- na.omit(seasonality_chart)
+
+# Remove rows where success is less than or equal to 0
+seasonality_clean <- seasonality_clean[seasonality_clean$success > 0,]
+
+# Fit the model for success using a quadratic term for day
+lmemerge <- lm(success ~ day + I(day^2), data = seasonality_clean)
+
+# Fit the model for clutch size
+lmclutch <- lm(clutch ~ day, data = seasonality_clean)
+
+# Get the summary of the models
+summary(lmemerge)
+summary(lmclutch)
